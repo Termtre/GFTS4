@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtCharts/QtCharts>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,6 +17,56 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private slots:
+    void on_startTestTask_clicked();
+
+    void on_clearTestTask_clicked();
+
+    void on_numberTest_editingFinished();
+
+    void on_showDotsTest_clicked(bool checked);
+
+    void on_clearMainTask_clicked();
+
+    void on_showDotsMain_clicked(bool checked);
+
+    void on_startMainTask_clicked();
+
+    void on_numberMain_editingFinished();
+
+    void on_clearOscillTask_clicked();
+
+    void on_showDotsOscill_clicked(bool checked);
+
+    void on_numberOscill_editingFinished();
+
+    void on_startOscillTask_clicked();
+
+private:
+    // Тестовая функция
+    QChart* chartTest = nullptr;
+    QLineSeries* testSeries = nullptr;
+    QValueAxis* testX = nullptr;
+    QValueAxis* testY = nullptr;
+
+    int testN = 5;
+
+    // Основная функция
+    QChart* chartMain = nullptr;
+    QLineSeries* mainSeries = nullptr;
+    QValueAxis* mainX = nullptr;
+    QValueAxis* mainY = nullptr;
+
+    int mainN = 5;
+
+    // Осциллирующая функция
+    QChart* chartOscill = nullptr;
+    QLineSeries* oscillSeries = nullptr;
+    QValueAxis* oscillX = nullptr;
+    QValueAxis* oscillY = nullptr;
+
+    int oscillN = 5;
 
 private:
     Ui::MainWindow *ui;

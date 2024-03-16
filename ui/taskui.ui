@@ -125,10 +125,25 @@
         <x>0</x>
         <y>0</y>
         <width>684</width>
-        <height>1410</height>
+        <height>1392</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>6</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
         <widget class="QTextBrowser" name="textBrowser">
          <property name="sizePolicy">
@@ -251,7 +266,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
        <item>
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -316,14 +331,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Контрольная сетка: N = &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Погрешность сплайна на контрольной сетке:&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;max |&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;F&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj) - &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj)| =  при x = &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Погрешность сплайна на контрольной сетке max |&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;F&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj) - &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj)| =  &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;при x = &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Погрешность производной на контрольной сетке:&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;max |&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;F'&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj) - &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S'&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj)| =  при x = &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Погрешность производной на контрольной сетке max |&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;F'&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj) - &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S'&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj)| =  &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;при x = &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Погрешность второй производной на контрольной сетке (опция):&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;max |&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;F''&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj) - &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj)| =  при x = &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Погрешность второй производной на контрольной сетке (опция) max |&lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;F''&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj) - &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(xj)| =  &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;при x = &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
