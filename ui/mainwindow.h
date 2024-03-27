@@ -43,10 +43,16 @@ private slots:
 
     void on_startOscillTask_clicked();
 
+    void on_testFuncBox_clicked(bool checked);
+
+    void on_testSplineBox_clicked(bool checked);
+
 private:
     // Тестовая функция
     QChart* chartTest = nullptr;
+
     QLineSeries* testSeries = nullptr;
+
     QValueAxis* testX = nullptr;
     QValueAxis* testY = nullptr;
 

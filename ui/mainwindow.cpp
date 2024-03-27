@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "..\include\testSpline.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -35,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
     chartTest->addAxis(testY, Qt::AlignLeft);
 
     ui->showDotsTest->setChecked(true);
+    ui->testFuncBox->setChecked(true);
+    ui->testSplineBox->setChecked(true);
     ui->testSplineKoef->verticalHeader()->setVisible(false);
     ui->testComp->verticalHeader()->setVisible(false);
     ui->testCompDer->verticalHeader()->setVisible(false);
@@ -113,9 +116,13 @@ void MainWindow::on_startTestTask_clicked()
     if (ui->showDotsTest->isChecked()) testSeries->setPointsVisible(true);
     else testSeries->setPointsVisible(false);
 
+    TestSpline test(testN);
+
+    test.getResults(testSeries, ui->testSplineKoef, ui->testComp, ui->testCompDer, ui->testCompSecDer);
+
     for (int i = 0; i < testN + 1; i++)
     {
-        if (i > 0) ui->testSplineKoef->setItem(i - 1, 0, new QTableWidgetItem(QString::number(i)));
+        /*if (i > 0) ui->testSplineKoef->setItem(i - 1, 0, new QTableWidgetItem(QString::number(i)));
         ui->testComp->setItem(i, 0, new QTableWidgetItem(QString::number(i)));
         ui->testCompDer->setItem(i, 0, new QTableWidgetItem(QString::number(i)));
         ui->testCompSecDer->setItem(i, 0, new QTableWidgetItem(QString::number(i)));
@@ -134,7 +141,7 @@ void MainWindow::on_startTestTask_clicked()
 
         ui->testComp->setItem(i, 4, new QTableWidgetItem(QString::number(i)));
         ui->testCompDer->setItem(i, 4, new QTableWidgetItem(QString::number(i)));
-        ui->testCompSecDer->setItem(i, 4, new QTableWidgetItem(QString::number(i)));
+        ui->testCompSecDer->setItem(i, 4, new QTableWidgetItem(QString::number(i)));*/
 
         *testSeries << QPointF(i, i * i);
     }
@@ -220,6 +227,20 @@ void MainWindow::on_showDotsTest_clicked(bool checked)
     }
 }
 
+void MainWindow::on_testFuncBox_clicked(bool checked)
+{
+    if (testSeries)
+    {
+        if (checked) testSeries->setVisible(true);
+        else testSeries->setVisible(false);
+    }
+}
+
+
+void MainWindow::on_testSplineBox_clicked(bool checked)
+{
+
+}
 
 // Основная функция
 
