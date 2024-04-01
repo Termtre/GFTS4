@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "..\include\spline.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,17 +19,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Тестовая функция
     chartTest = new QChart();
-    chartTest->legend()->setVisible(false);
+    chartTest->legend()->setVisible(true);
     chartTest->setTitle("Тестовая функция");
 
     testX = new QValueAxis();
-    testX->setLabelFormat("%f");
+    testX->setLabelFormat("%.5lf");
     testX->setTickCount(11);
     testX->setTitleText("x");
     chartTest->addAxis(testX, Qt::AlignBottom);
 
     testY = new QValueAxis();
-    testY->setLabelFormat("%f");
+    testY->setLabelFormat("%.5lf");
     testY->setTickCount(11);
     testY->setTitleText("y");
     chartTest->addAxis(testY, Qt::AlignLeft);

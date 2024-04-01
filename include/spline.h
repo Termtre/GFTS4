@@ -24,10 +24,10 @@ public:
     double S(int i, double x);// функция сплайна
     double dS(int, double);// функция первой производной сплайна
     double ddS(int, double);// функция второй производной сплайна
-    std::vector<double> getai();
-    std::vector<double> getbi();
-    std::vector<double> getci();
-    std::vector<double> getdi();
+    std::vector<double> getAi();
+    std::vector<double> getBi();
+    std::vector<double> getCi();
+    std::vector<double> getDi();
 };
 
 #endif // SPLINE_H

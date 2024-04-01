@@ -21,8 +21,6 @@ public:
 private slots:
     void on_startTestTask_clicked();
 
-    void on_clearTestTask_clicked();
-
     void on_numberTest_editingFinished();
 
     void on_showDotsTest_clicked(bool checked);
@@ -47,11 +45,23 @@ private slots:
 
     void on_testSplineBox_clicked(bool checked);
 
+    void testClear();
+
+    void on_testComboBox_currentIndexChanged(int index);
+
 private:
     // Тестовая функция
     QChart* chartTest = nullptr;
 
     QLineSeries* testSeries = nullptr;
+    QLineSeries* testFuncSeries = nullptr;
+    QLineSeries* testDSeries = nullptr;
+    QLineSeries* testDFuncSeries = nullptr;
+    QLineSeries* testDDSeries = nullptr;
+    QLineSeries* testDDFuncSeries = nullptr;
+    QLineSeries* testCompSeries = nullptr;
+    QLineSeries* testCompDSeries = nullptr;
+    QLineSeries* testCompDDSeries = nullptr;
 
     QValueAxis* testX = nullptr;
     QValueAxis* testY = nullptr;

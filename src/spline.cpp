@@ -1,5 +1,5 @@
-#include "..\include\spline.h"
-#include "..\include\task.h"
+#include "../include/spline.h"
+#include "../include/task.h"
 
 Spline::Spline(int numberPartitions,
                double leftBorder,
@@ -74,22 +74,22 @@ double Spline::ddS(int i, double x)
     return ci[i] + di[i] * res;
 }
 
-inline std::vector<double> Spline::getai()
+std::vector<double> Spline::getAi()
 {
     return ai;
 }
 
-inline std::vector<double> Spline::getbi()
+std::vector<double> Spline::getBi()
 {
     return bi;
 }
 
-inline std::vector<double> Spline::getci()
+std::vector<double> Spline::getCi()
 {
     return ci;
 }
 
-inline std::vector<double> Spline::getdi()
+std::vector<double> Spline::getDi()
 {
     return di;
 }

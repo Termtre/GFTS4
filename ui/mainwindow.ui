@@ -140,19 +140,6 @@
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout">
               <item>
-               <widget class="QPushButton" name="clearTestTask">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="text">
-                 <string>Очистить</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QCheckBox" name="showDotsTest">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -235,7 +222,7 @@
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="CustomView" name="graphicsView"/>
+            <widget class="QChartView" name="graphicsView"/>
            </item>
           </layout>
          </widget>
@@ -262,8 +249,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>684</width>
-             <height>1322</height>
+             <width>698</width>
+             <height>1323</height>
             </rect>
            </property>
            <property name="minimumSize">
@@ -386,18 +373,18 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Тестовая задача&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                      &lt;span style=&quot; font-size:11pt;&quot;&gt;x&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt; + 3x&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;, x&lt;/span&gt; ∈ &lt;span style=&quot; font-size:11pt;&quot;&gt;[-1, 0]&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;φ&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(x) =&lt;/span&gt; &lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                    -&lt;span style=&quot; font-size:11pt;&quot;&gt;x&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt; + 3x&lt;/span&gt;&lt;span style=&quot; font-size:11pt; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;, x&lt;/span&gt; ∈ &lt;span style=&quot; font-size:11pt;&quot;&gt;[0, 1]&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;x&lt;/span&gt; ∈ &lt;span style=&quot; font-size:11pt;&quot;&gt;[-1, 1]&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Сетка равномерная&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Граничные условия:  &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(a) = &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;φ&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;''(-1) = 0,  &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(b) = &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;φ&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;''(1) = 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;Тестовая задача&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;                      &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;x&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt; + 3x&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;, x&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt; ∈ &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;[-1, 0]&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; font-style:italic;&quot;&gt;φ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;(x) =&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt; &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;                    -&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;x&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; vertical-align:super;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt; + 3x&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; vertical-align:super;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;, x&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt; ∈ &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;[0, 1]&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;x&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt; ∈ &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;[-1, 1]&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;Сетка равномерная&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;Граничные условия:  &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;(a) = &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; font-style:italic;&quot;&gt;φ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;''(-1) = 0,  &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;(b) = &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; font-style:italic;&quot;&gt;φ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;''(1) = 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
              </widget>
             </item>
@@ -1436,8 +1423,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>684</width>
-             <height>1322</height>
+             <width>698</width>
+             <height>1323</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_5">
@@ -1477,16 +1464,16 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Основная функция&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;f&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(x) = (x^2 - 1) ^ (1 / 2) / x&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;x&lt;/span&gt; ∈ &lt;span style=&quot; font-size:11pt;&quot;&gt;[2, 4]&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Сетка равномерная&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Естественные граничные условия:  &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(a) = 0,  &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(b) = 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;Основная функция&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; font-style:italic;&quot;&gt;f&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;(x) = (x^2 - 1) ^ (1 / 2) / x&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;x&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt; ∈ &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;[2, 4]&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;Сетка равномерная&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;Естественные граничные условия:  &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;(a) = 0,  &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;(b) = 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
              </widget>
             </item>
@@ -2593,8 +2580,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>684</width>
-             <height>1322</height>
+             <width>698</width>
+             <height>1323</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_18">
@@ -2634,16 +2621,16 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Осциллирующая функция&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;f&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(x) = (x^2 - 1) ^ (1 / 2) / x + cos(10x)&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;x&lt;/span&gt; ∈ &lt;span style=&quot; font-size:11pt;&quot;&gt;[2, 4]&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Сетка равномерная&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;Естественные граничные условия:  &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(a) = 0,  &lt;/span&gt;&lt;span style=&quot; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;(b) = 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;Осциллирующая функция&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; font-style:italic;&quot;&gt;f&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;(x) = (x^2 - 1) ^ (1 / 2) / x + cos(10x)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;x&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt; ∈ &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;[2, 4]&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;Сетка равномерная&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;Естественные граничные условия:  &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;(a) = 0,  &lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt; font-style:italic;&quot;&gt;S''&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:11pt;&quot;&gt;(b) = 0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
              </widget>
             </item>
@@ -3630,6 +3617,11 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <class>CustomView</class>
    <extends>QGraphicsView</extends>
    <header>customview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>qchartview.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

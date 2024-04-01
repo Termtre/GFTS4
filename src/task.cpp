@@ -1,4 +1,4 @@
-﻿#include "..\include\task.h"
+﻿#include "../include/task.h"
 #include <cmath>
 Task::Task(int n) : nodes(n)
 {
