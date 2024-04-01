@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QtCharts/QtCharts>
 
+#include "functions.h"
+#include "../include/spline.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -25,15 +28,11 @@ private slots:
 
     void on_showDotsTest_clicked(bool checked);
 
-    void on_clearMainTask_clicked();
-
     void on_showDotsMain_clicked(bool checked);
 
     void on_startMainTask_clicked();
 
     void on_numberMain_editingFinished();
-
-    void on_clearOscillTask_clicked();
 
     void on_showDotsOscill_clicked(bool checked);
 
@@ -47,7 +46,23 @@ private slots:
 
     void testClear();
 
+    void mainClear();
+
+    void oscillClear();
+
     void on_testComboBox_currentIndexChanged(int index);
+
+    void on_mainComboBox_currentIndexChanged(int index);
+
+    void on_oscillFuncBox_clicked(bool checked);
+
+    void on_oscillSplineBox_clicked(bool checked);
+
+    void on_oscillComboBox_currentIndexChanged(int index);
+
+    void on_mainFuncBox_clicked(bool checked);
+
+    void on_mainSplineBox_clicked(bool checked);
 
 private:
     // Тестовая функция
@@ -70,7 +85,17 @@ private:
 
     // Основная функция
     QChart* chartMain = nullptr;
+
     QLineSeries* mainSeries = nullptr;
+    QLineSeries* mainFuncSeries = nullptr;
+    QLineSeries* mainDSeries = nullptr;
+    QLineSeries* mainDFuncSeries = nullptr;
+    QLineSeries* mainDDSeries = nullptr;
+    QLineSeries* mainDDFuncSeries = nullptr;
+    QLineSeries* mainCompSeries = nullptr;
+    QLineSeries* mainCompDSeries = nullptr;
+    QLineSeries* mainCompDDSeries = nullptr;
+
     QValueAxis* mainX = nullptr;
     QValueAxis* mainY = nullptr;
 
@@ -78,7 +103,17 @@ private:
 
     // Осциллирующая функция
     QChart* chartOscill = nullptr;
+
     QLineSeries* oscillSeries = nullptr;
+    QLineSeries* oscillFuncSeries = nullptr;
+    QLineSeries* oscillDSeries = nullptr;
+    QLineSeries* oscillDFuncSeries = nullptr;
+    QLineSeries* oscillDDSeries = nullptr;
+    QLineSeries* oscillDDFuncSeries = nullptr;
+    QLineSeries* oscillCompSeries = nullptr;
+    QLineSeries* oscillCompDSeries = nullptr;
+    QLineSeries* oscillCompDDSeries = nullptr;
+
     QValueAxis* oscillX = nullptr;
     QValueAxis* oscillY = nullptr;
 

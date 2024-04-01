@@ -22,12 +22,12 @@ void Spline::solution(double (*f)(double))
     std::vector<double> Phi(n + 1);           // Для прогонки
 
 
-    A[0] = 0.;
+    A[0] = 1.;
     C[0] = 0.;
     B[0] = 0.;
     A[n] = 0.;
     B[n] = 0.;
-    C[n] = 0.;
+    C[n] = 1.;
     Phi[0] = 0.;
     Phi[n] = 0.;
 
@@ -59,13 +59,13 @@ void Spline::solution(double (*f)(double))
 double Spline::S(int i, double x)
 {
     double res = x - (a + static_cast<double>(i) * h);
-    return ai[i] + bi[i] * res + ci[i] * pow(res, 2.) + di[i] * pow(res, 3.);
+    return ai[i] + bi[i] * res + ci[i] * pow(res, 2.) / 2. + di[i] * pow(res, 3.) / 6.;
 }
 
 double Spline::dS(int i, double x)
 {
     double res = x - (a + static_cast<double>(i) * h);
-    return bi[i] + ci[i] * res + di[i] * pow(res, 2.);
+    return bi[i] + ci[i] * res + di[i] * pow(res, 2.) / 2.;
 }
 
 double Spline::ddS(int i, double x)

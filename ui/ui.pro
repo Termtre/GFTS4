@@ -12,6 +12,7 @@ SOURCES += \
     ../src/spline.cpp \
     ../src/task.cpp \
     customview.cpp \
+    functions.cpp \
     main.cpp \
     mainpart.cpp \
     mainwindow.cpp \

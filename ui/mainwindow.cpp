@@ -60,6 +60,8 @@ MainWindow::MainWindow(QWidget *parent)
     chartMain->addAxis(mainY, Qt::AlignLeft);
 
     ui->showDotsMain->setChecked(true);
+    ui->mainFuncBox->setChecked(true);
+    ui->mainSplineBox->setChecked(true);
     ui->mainSplineKoef->verticalHeader()->setVisible(false);
     ui->mainComp->verticalHeader()->setVisible(false);
     ui->mainCompDer->verticalHeader()->setVisible(false);
@@ -83,6 +85,8 @@ MainWindow::MainWindow(QWidget *parent)
     chartOscill->addAxis(oscillY, Qt::AlignLeft);
 
     ui->showDotsOscill->setChecked(true);
+    ui->oscillFuncBox->setChecked(true);
+    ui->oscillSplineBox->setChecked(true);
     ui->oscillSplineKoef->verticalHeader()->setVisible(false);
     ui->oscillComp->verticalHeader()->setVisible(false);
     ui->oscillCompDer->verticalHeader()->setVisible(false);

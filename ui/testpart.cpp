@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "../include/spline.h"
-#include "functions.h"
+
 
 void MainWindow::on_startTestTask_clicked()
 {
@@ -56,7 +55,7 @@ void MainWindow::on_startTestTask_clicked()
     else testSeries->setPointsVisible(false);
 
     Spline test(testN, -1., 0., 1.);
-    test.solution(testFunc);
+    test.solution(functionTest);
 
     std::vector<double> ai(test.getAi());
     std::vector<double> bi(test.getBi());
@@ -83,54 +82,12 @@ void MainWindow::on_startTestTask_clicked()
 
     double x, spline, function, dspline, dfunction, ddspline, ddfunction, scomp, dscomp, ddscomp;
 
-
-    x = -1.;
-    spline = 2.;
-    function = testFunc(x);
-    scomp = function - spline;
-
-    dspline = bi[1];
-    dfunction = testDFunc(x);
-    dscomp = dfunction - dspline;
-
-    ddspline = ci[0];
-    ddfunction = testDDFunc(x);
-    ddscomp = ddfunction - ddspline;
-
-    ui->testComp->setItem(0, 0, new QTableWidgetItem(QString::number(0)));
-    ui->testComp->setItem(0, 1, new QTableWidgetItem(QString::number(x)));
-    ui->testComp->setItem(0, 2, new QTableWidgetItem(QString::number(function)));
-    ui->testComp->setItem(0, 3, new QTableWidgetItem(QString::number(spline)));
-    ui->testComp->setItem(0, 4, new QTableWidgetItem(QString::number(scomp)));
-
-    ui->testCompDer->setItem(0, 0, new QTableWidgetItem(QString::number(0)));
-    ui->testCompDer->setItem(0, 1, new QTableWidgetItem(QString::number(x)));
-    ui->testCompDer->setItem(0, 2, new QTableWidgetItem(QString::number(dfunction)));
-    ui->testCompDer->setItem(0, 3, new QTableWidgetItem(QString::number(dspline)));
-    ui->testCompDer->setItem(0, 4, new QTableWidgetItem(QString::number(dscomp)));
-
-    ui->testCompSecDer->setItem(0, 0, new QTableWidgetItem(QString::number(0)));
-    ui->testCompSecDer->setItem(0, 1, new QTableWidgetItem(QString::number(x)));
-    ui->testCompSecDer->setItem(0, 2, new QTableWidgetItem(QString::number(ddfunction)));
-    ui->testCompSecDer->setItem(0, 3, new QTableWidgetItem(QString::number(ddspline)));
-    ui->testCompSecDer->setItem(0, 4, new QTableWidgetItem(QString::number(ddscomp)));
-
-    *testSeries << QPointF(x, spline);
-    *testFuncSeries << QPointF(x, function);
-    *testDSeries << QPointF(x, dspline);
-    *testDFuncSeries << QPointF(x, dfunction);
-    *testDDSeries << QPointF(x, ddspline);
-    *testDDFuncSeries << QPointF(x, ddfunction);
-    *testCompSeries << QPointF(x, scomp);
-    *testCompDSeries << QPointF(x, dscomp);
-    *testCompDDSeries << QPointF(x, ddscomp);
-
-    for (int i = 1, j = 1; i <= testN * 5; i++)
+    for (int i = 0, j = 1; i <= testN * 5; i++)
     {
         x = -1. + static_cast<double>(i) * h;
 
         spline = test.S(j, x);
-        function = testFunc(x);
+        function = functionTest(x);
         scomp = function - spline;
 
         if (abs(scomp) > totalS)
@@ -140,7 +97,7 @@ void MainWindow::on_startTestTask_clicked()
         }
 
         dspline = test.dS(j, x);
-        dfunction = testDFunc(x);
+        dfunction = functionTestD(x);
         dscomp = dfunction - dspline;
 
         if (abs(dscomp) > totalDerS)
@@ -150,7 +107,7 @@ void MainWindow::on_startTestTask_clicked()
         }
 
         ddspline = test.ddS(j, x);
-        ddfunction = testDDFunc(x);
+        ddfunction = functionTestDD(x);
         ddscomp = ddfunction - ddspline;
 
         if (abs(ddscomp) > totalSecDerS)
@@ -187,7 +144,7 @@ void MainWindow::on_startTestTask_clicked()
         *testCompDSeries << QPointF(x, dscomp);
         *testCompDDSeries << QPointF(x, ddscomp);
 
-        if ((i % 5) == 0) j++;
+        if (i != 0) if ((i % 5) == 0) j++;
     }
 
     chartTest->addSeries(testSeries);
