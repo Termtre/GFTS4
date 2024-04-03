@@ -64,6 +64,12 @@ private slots:
 
     void on_mainSplineBox_clicked(bool checked);
 
+    void on_testMultiplier_editingFinished();
+
+    void on_oscillMultiplier_editingFinished();
+
+    void on_mainMultiplier_editingFinished();
+
 private:
     // Тестовая функция
     QChart* chartTest = nullptr;
@@ -81,7 +87,8 @@ private:
     QValueAxis* testX = nullptr;
     QValueAxis* testY = nullptr;
 
-    int testN = 5;
+    int testN = 2;
+    int testM = 1;
 
     // Основная функция
     QChart* chartMain = nullptr;
@@ -99,7 +106,8 @@ private:
     QValueAxis* mainX = nullptr;
     QValueAxis* mainY = nullptr;
 
-    int mainN = 5;
+    int mainN = 2;
+    int mainM = 1;
 
     // Осциллирующая функция
     QChart* chartOscill = nullptr;
@@ -117,7 +125,8 @@ private:
     QValueAxis* oscillX = nullptr;
     QValueAxis* oscillY = nullptr;
 
-    int oscillN = 5;
+    int oscillN = 2;
+    int oscillM = 1;
 
 private:
     Ui::MainWindow *ui;

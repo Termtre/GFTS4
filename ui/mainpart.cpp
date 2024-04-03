@@ -6,9 +6,9 @@ void MainWindow::on_startMainTask_clicked()
     mainClear();
 
     ui->mainSplineKoef->setRowCount(mainN);
-    ui->mainComp->setRowCount(mainN * 5 + 1);
-    ui->mainCompDer->setRowCount(mainN * 5 + 1);
-    ui->mainCompSecDer->setRowCount(mainN * 5 + 1);
+    ui->mainComp->setRowCount(mainN * mainM + 1);
+    ui->mainCompDer->setRowCount(mainN * mainM + 1);
+    ui->mainCompSecDer->setRowCount(mainN * mainM + 1);
 
     mainSeries = new QLineSeries();
     mainSeries->setName("Сплайн");
@@ -37,22 +37,6 @@ void MainWindow::on_startMainTask_clicked()
     mainCompDDSeries = new QLineSeries();
     mainCompDDSeries->setName("Разность вторых производных");
 
-
-    mainSeries->setVisible(false);
-    mainDSeries->setVisible(false);
-    mainDDSeries->setVisible(false);
-
-    mainFuncSeries->setVisible(false);
-    mainDFuncSeries->setVisible(false);
-    mainDDFuncSeries->setVisible(false);
-
-    mainCompSeries->setVisible(false);
-    mainCompDSeries->setVisible(false);
-    mainCompDDSeries->setVisible(false);
-
-    if (ui->showDotsMain->isChecked()) mainSeries->setPointsVisible(true);
-    else mainSeries->setPointsVisible(false);
-
     Spline main(mainN, 2., 0., 4.);
     main.solution(functionMain);
 
@@ -77,11 +61,11 @@ void MainWindow::on_startMainTask_clicked()
     double totalS = 0., totalDerS = 0., totalSecDerS = 0.;
     double totalXS = 0., totalXDerS = 0., totalXSecDerS = 0.;
 
-    h /= 5.;
+    h /= mainM;
 
     double x, spline, function, dspline, dfunction, ddspline, ddfunction, scomp, dscomp, ddscomp;
 
-    for (int i = 0, j = 1; i <= mainN * 5; i++)
+    for (int i = 0, j = 1; i <= mainN * mainM; i++)
     {
         x = 2. + static_cast<double>(i) * h;
 
@@ -143,7 +127,7 @@ void MainWindow::on_startMainTask_clicked()
         *mainCompDSeries << QPointF(x, dscomp);
         *mainCompDDSeries << QPointF(x, ddscomp);
 
-        if (i != 0) if ((i % 5) == 0) j++;
+        if (i != 0) if ((i % mainM) == 0) j++;
     }
 
     chartMain->addSeries(mainSeries);
@@ -157,62 +141,36 @@ void MainWindow::on_startMainTask_clicked()
     chartMain->addSeries(mainCompDDSeries);
 
     ui->graphicsView_2->setChart(chartMain);
+
     mainSeries->attachAxis(mainX);
     mainSeries->attachAxis(mainY);
 
-    mainX->setRange(2., 4.);
+    mainFuncSeries->attachAxis(mainX);
+    mainFuncSeries->attachAxis(mainY);
 
-    if (ui->mainComboBox->currentIndex() < 3)
-    {
-        mainY->setRange(0., 2.);
-    }
-    else
-    {
-        if (ui->mainComboBox->currentIndex() == 3) mainY->setRange(0., totalS);
-        else if (ui->mainComboBox->currentIndex() == 4) mainY->setRange(0., totalDerS);
-        else mainY->setRange(0., totalSecDerS);
-    }
-    //ui->graphicsView->zoomIt(false);
+    mainDSeries->attachAxis(mainX);
+    mainDSeries->attachAxis(mainY);
 
-    if (ui->mainComboBox->currentIndex() == 0)
-    {
-        if (ui->mainSplineBox->isChecked()) mainSeries->setVisible(true);
-        else mainSeries->setVisible(false);
+    mainDFuncSeries->attachAxis(mainX);
+    mainDFuncSeries->attachAxis(mainY);
 
-        if (ui->mainFuncBox->isChecked()) mainFuncSeries->setVisible(true);
-        else mainFuncSeries->setVisible(false);
-    }
-    else if (ui->mainComboBox->currentIndex() == 1)
-    {
-        if (ui->mainSplineBox->isChecked()) mainDSeries->setVisible(true);
-        else mainDSeries->setVisible(false);
+    mainDDSeries->attachAxis(mainX);
+    mainDDSeries->attachAxis(mainY);
 
-        if (ui->mainFuncBox->isChecked()) mainDFuncSeries->setVisible(true);
-        else mainDFuncSeries->setVisible(false);
-    }
-    else if (ui->mainComboBox->currentIndex() == 2)
-    {
-        if (ui->mainSplineBox->isChecked()) mainDDSeries->setVisible(true);
-        else mainDDSeries->setVisible(false);
+    mainDDFuncSeries->attachAxis(mainX);
+    mainDDFuncSeries->attachAxis(mainY);
 
-        if (ui->mainFuncBox->isChecked()) mainDDFuncSeries->setVisible(true);
-        else mainDDFuncSeries->setVisible(false);
-    }
-    else if (ui->mainComboBox->currentIndex() == 3)
-    {
-        mainCompSeries->setVisible(true);
-    }
-    else if (ui->mainComboBox->currentIndex() == 4)
-    {
-        mainCompDSeries->setVisible(true);
-    }
-    else
-    {
-        mainCompDDSeries->setVisible(true);
-    }
+    mainCompSeries->attachAxis(mainX);
+    mainCompSeries->attachAxis(mainY);
 
-    ui->mainNEdit->setText(QString().number(mainN * 5));
-    ui->mainnEdit->setText(QString().number(mainN));
+    mainCompDSeries->attachAxis(mainX);
+    mainCompDSeries->attachAxis(mainY);
+
+    mainCompDDSeries->attachAxis(mainX);
+    mainCompDDSeries->attachAxis(mainY);
+
+    ui->mainNEdit->setText(QString().number(mainN * mainM + 1));
+    ui->mainnEdit->setText(QString().number(mainN + 1));
 
     ui->mainSComp->setText(QString().number(totalS));
     ui->mainxSComp->setText(QString().number(totalXS));
@@ -222,6 +180,16 @@ void MainWindow::on_startMainTask_clicked()
 
     ui->mainSecDerSComp->setText(QString().number(totalSecDerS));
     ui->mainxSecDerSComp->setText(QString().number(totalXSecDerS));
+
+    on_showDotsMain_clicked(ui->showDotsMain->isChecked());
+
+    on_mainFuncBox_clicked(ui->mainFuncBox->isChecked());
+
+    on_mainSplineBox_clicked(ui->mainSplineBox->isChecked());
+
+    on_mainComboBox_currentIndexChanged(ui->mainComboBox->currentIndex());
+
+    ui->graphicsView_2->zoomIt(true);
 }
 
 
@@ -291,7 +259,7 @@ void MainWindow::on_showDotsMain_clicked(bool checked)
 
             mainFuncSeries->setPointsVisible(true);
             mainDFuncSeries->setPointsVisible(true);
-            mainDFuncSeries->setPointsVisible(true);
+            mainDDFuncSeries->setPointsVisible(true);
 
             mainCompSeries->setPointsVisible(true);
             mainCompDSeries->setPointsVisible(true);
@@ -406,4 +374,38 @@ void MainWindow::on_mainComboBox_currentIndexChanged(int index)
         }
         }
     }
+}
+
+void MainWindow::on_mainMultiplier_editingFinished()
+{
+    bool ok;
+    ui->mainMultiplier->text().toInt(&ok);
+
+    if (ok == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Ошибка");
+        msgBox.setText("Недопустимые символы");
+        msgBox.exec();
+
+        ui->startMainTask->setEnabled(false);
+
+        return;
+    }
+
+    mainM = ui->mainMultiplier->text().toInt();
+
+    if (mainM < 0)
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Ошибка");
+        msgBox.setText("Множитель не может быть отрицательным числом");
+        msgBox.exec();
+
+        ui->startMainTask->setEnabled(false);
+
+        return;
+    }
+
+    ui->startMainTask->setEnabled(true);
 }

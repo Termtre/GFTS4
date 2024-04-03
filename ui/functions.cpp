@@ -1,5 +1,7 @@
 #include "functions.h"
 
+#include <cmath>
+
 double functionTest(double x)
 {
     if (x < 0) return x * x * x + 3. * x * x;
@@ -30,7 +32,8 @@ double functionMainD(double x)
 
 double functionMainDD(double x)
 {
-    return -sqrt(x * x - 1.) * (3. * x * x - 2.) / (pow(x, 7.) - 2. * pow(x, 5.) + pow(x, 3.));
+    //return -sqrt(x * x - 1.) * (3. * x * x - 2.) / (pow(x, 7.) - 2. * pow(x, 5.) + pow(x, 3.));
+    return (2. - 3. * x * x) / (x * x * x * pow((x * x - 1.) , 3. / 2.));
 }
 
 double functionOscill(double x)
@@ -45,5 +48,6 @@ double functionOscillD(double x)
 
 double functionOscillDD(double x)
 {
-    return -sqrt(x * x - 1.) * (3. * x * x - 2.) / (pow(x, 7.) - 2. * pow(x, 5.) + pow(x, 3.)) - 100. *  cos(10. * x);
+    //return -sqrt(x * x - 1.) * (3. * x * x - 2.) / (pow(x, 7.) - 2. * pow(x, 5.) + pow(x, 3.)) - 100. *  cos(10. * x);
+    return (2. - 3. * x * x) / (x * x * x * pow((x * x - 1.) , 3. / 2.)) - 100. *  cos(10. * x);
 }

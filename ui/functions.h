@@ -1,7 +1,5 @@
 #pragma once
 
-#include <cmath>
-
 double functionTest(double x);
 
 double functionTestD(double x);

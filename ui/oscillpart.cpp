@@ -6,9 +6,9 @@ void MainWindow::on_startOscillTask_clicked()
     oscillClear();
 
     ui->oscillSplineKoef->setRowCount(oscillN);
-    ui->oscillComp->setRowCount(oscillN * 5 + 1);
-    ui->oscillCompDer->setRowCount(oscillN * 5 + 1);
-    ui->oscillCompSecDer->setRowCount(oscillN * 5 + 1);
+    ui->oscillComp->setRowCount(oscillN * oscillM + 1);
+    ui->oscillCompDer->setRowCount(oscillN * oscillM + 1);
+    ui->oscillCompSecDer->setRowCount(oscillN * oscillM + 1);
 
     oscillSeries = new QLineSeries();
     oscillSeries->setName("Сплайн");
@@ -37,22 +37,6 @@ void MainWindow::on_startOscillTask_clicked()
     oscillCompDDSeries = new QLineSeries();
     oscillCompDDSeries->setName("Разность вторых производных");
 
-
-    oscillSeries->setVisible(false);
-    oscillDSeries->setVisible(false);
-    oscillDDSeries->setVisible(false);
-
-    oscillFuncSeries->setVisible(false);
-    oscillDFuncSeries->setVisible(false);
-    oscillDDFuncSeries->setVisible(false);
-
-    oscillCompSeries->setVisible(false);
-    oscillCompDSeries->setVisible(false);
-    oscillCompDDSeries->setVisible(false);
-
-    if (ui->showDotsOscill->isChecked()) oscillSeries->setPointsVisible(true);
-    else oscillSeries->setPointsVisible(false);
-
     Spline oscill(oscillN, 2., 0., 4.);
     oscill.solution(functionOscill);
 
@@ -77,11 +61,11 @@ void MainWindow::on_startOscillTask_clicked()
     double totalS = 0., totalDerS = 0., totalSecDerS = 0.;
     double totalXS = 0., totalXDerS = 0., totalXSecDerS = 0.;
 
-    h /= 5.;
+    h /= oscillM;
 
     double x, spline, function, dspline, dfunction, ddspline, ddfunction, scomp, dscomp, ddscomp;
 
-    for (int i = 0, j = 1; i <= oscillN * 5; i++)
+    for (int i = 0, j = 1; i <= oscillN * oscillM; i++)
     {
         x = 2. + static_cast<double>(i) * h;
 
@@ -143,7 +127,7 @@ void MainWindow::on_startOscillTask_clicked()
         *oscillCompDSeries << QPointF(x, dscomp);
         *oscillCompDDSeries << QPointF(x, ddscomp);
 
-        if (i != 0) if ((i % 5) == 0) j++;
+        if (i != 0) if ((i % oscillM) == 0) j++;
     }
 
     chartOscill->addSeries(oscillSeries);
@@ -157,62 +141,36 @@ void MainWindow::on_startOscillTask_clicked()
     chartOscill->addSeries(oscillCompDDSeries);
 
     ui->graphicsView_3->setChart(chartOscill);
+
     oscillSeries->attachAxis(oscillX);
     oscillSeries->attachAxis(oscillY);
 
-    oscillX->setRange(2., 4.);
+    oscillFuncSeries->attachAxis(oscillX);
+    oscillFuncSeries->attachAxis(oscillY);
 
-    if (ui->oscillComboBox->currentIndex() < 3)
-    {
-        oscillY->setRange(0., 2.);
-    }
-    else
-    {
-        if (ui->oscillComboBox->currentIndex() == 3) oscillY->setRange(0., totalS);
-        else if (ui->oscillComboBox->currentIndex() == 4) oscillY->setRange(0., totalDerS);
-        else oscillY->setRange(0., totalSecDerS);
-    }
-    //ui->graphicsView->zoomIt(false);
+    oscillDSeries->attachAxis(oscillX);
+    oscillDSeries->attachAxis(oscillY);
 
-    if (ui->oscillComboBox->currentIndex() == 0)
-    {
-        if (ui->oscillSplineBox->isChecked()) oscillSeries->setVisible(true);
-        else oscillSeries->setVisible(false);
+    oscillDFuncSeries->attachAxis(oscillX);
+    oscillDFuncSeries->attachAxis(oscillY);
 
-        if (ui->oscillFuncBox->isChecked()) oscillFuncSeries->setVisible(true);
-        else oscillFuncSeries->setVisible(false);
-    }
-    else if (ui->oscillComboBox->currentIndex() == 1)
-    {
-        if (ui->oscillSplineBox->isChecked()) oscillDSeries->setVisible(true);
-        else oscillDSeries->setVisible(false);
+    oscillDDSeries->attachAxis(oscillX);
+    oscillDDSeries->attachAxis(oscillY);
 
-        if (ui->oscillFuncBox->isChecked()) oscillDFuncSeries->setVisible(true);
-        else oscillDFuncSeries->setVisible(false);
-    }
-    else if (ui->oscillComboBox->currentIndex() == 2)
-    {
-        if (ui->oscillSplineBox->isChecked()) oscillDDSeries->setVisible(true);
-        else oscillDDSeries->setVisible(false);
+    oscillDDFuncSeries->attachAxis(oscillX);
+    oscillDDFuncSeries->attachAxis(oscillY);
 
-        if (ui->oscillFuncBox->isChecked()) oscillDDFuncSeries->setVisible(true);
-        else oscillDDFuncSeries->setVisible(false);
-    }
-    else if (ui->oscillComboBox->currentIndex() == 3)
-    {
-        oscillCompSeries->setVisible(true);
-    }
-    else if (ui->oscillComboBox->currentIndex() == 4)
-    {
-        oscillCompDSeries->setVisible(true);
-    }
-    else
-    {
-        oscillCompDDSeries->setVisible(true);
-    }
+    oscillCompSeries->attachAxis(oscillX);
+    oscillCompSeries->attachAxis(oscillY);
 
-    ui->oscillNEdit->setText(QString().number(oscillN * 5));
-    ui->oscillnEdit->setText(QString().number(oscillN));
+    oscillCompDSeries->attachAxis(oscillX);
+    oscillCompDSeries->attachAxis(oscillY);
+
+    oscillCompDDSeries->attachAxis(oscillX);
+    oscillCompDDSeries->attachAxis(oscillY);
+
+    ui->oscillNEdit->setText(QString().number(oscillN * oscillM + 1));
+    ui->oscillnEdit->setText(QString().number(oscillN + 1));
 
     ui->oscillSComp->setText(QString().number(totalS));
     ui->oscillxSComp->setText(QString().number(totalXS));
@@ -222,6 +180,16 @@ void MainWindow::on_startOscillTask_clicked()
 
     ui->oscillSecDerSComp->setText(QString().number(totalSecDerS));
     ui->oscillxSecDerSComp->setText(QString().number(totalXSecDerS));
+
+    on_showDotsOscill_clicked(ui->showDotsOscill->isChecked());
+
+    on_oscillFuncBox_clicked(ui->oscillFuncBox->isChecked());
+
+    on_oscillSplineBox_clicked(ui->oscillSplineBox->isChecked());
+
+    on_oscillComboBox_currentIndexChanged(ui->oscillComboBox->currentIndex());
+
+    ui->graphicsView_3->zoomIt(true);
 }
 
 
@@ -291,7 +259,7 @@ void MainWindow::on_showDotsOscill_clicked(bool checked)
 
             oscillFuncSeries->setPointsVisible(true);
             oscillDFuncSeries->setPointsVisible(true);
-            oscillDFuncSeries->setPointsVisible(true);
+            oscillDDFuncSeries->setPointsVisible(true);
 
             oscillCompSeries->setPointsVisible(true);
             oscillCompDSeries->setPointsVisible(true);
@@ -406,4 +374,38 @@ void MainWindow::on_oscillComboBox_currentIndexChanged(int index)
         }
         }
     }
+}
+
+void MainWindow::on_oscillMultiplier_editingFinished()
+{
+    bool ok;
+    ui->oscillMultiplier->text().toInt(&ok);
+
+    if (ok == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Ошибка");
+        msgBox.setText("Недопустимые символы");
+        msgBox.exec();
+
+        ui->startOscillTask->setEnabled(false);
+
+        return;
+    }
+
+    oscillM = ui->oscillMultiplier->text().toInt();
+
+    if (oscillM < 0.)
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Ошибка");
+        msgBox.setText("Множитель не может быть отрицательным числом");
+        msgBox.exec();
+
+        ui->startOscillTask->setEnabled(false);
+
+        return;
+    }
+
+    ui->startOscillTask->setEnabled(true);
 }

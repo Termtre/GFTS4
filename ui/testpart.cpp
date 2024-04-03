@@ -7,9 +7,9 @@ void MainWindow::on_startTestTask_clicked()
     testClear();
 
     ui->testSplineKoef->setRowCount(testN);
-    ui->testComp->setRowCount(testN * 5 + 1);
-    ui->testCompDer->setRowCount(testN * 5 + 1);
-    ui->testCompSecDer->setRowCount(testN * 5 + 1);
+    ui->testComp->setRowCount(testN * testM + 1);
+    ui->testCompDer->setRowCount(testN * testM + 1);
+    ui->testCompSecDer->setRowCount(testN * testM + 1);
 
     testSeries = new QLineSeries();
     testSeries->setName("Сплайн");
@@ -38,22 +38,6 @@ void MainWindow::on_startTestTask_clicked()
     testCompDDSeries = new QLineSeries();
     testCompDDSeries->setName("Разность вторых производных");
 
-
-    testSeries->setVisible(false);
-    testDSeries->setVisible(false);
-    testDDSeries->setVisible(false);
-
-    testFuncSeries->setVisible(false);
-    testDFuncSeries->setVisible(false);
-    testDDFuncSeries->setVisible(false);
-
-    testCompSeries->setVisible(false);
-    testCompDSeries->setVisible(false);
-    testCompDDSeries->setVisible(false);
-
-    if (ui->showDotsTest->isChecked()) testSeries->setPointsVisible(true);
-    else testSeries->setPointsVisible(false);
-
     Spline test(testN, -1., 0., 1.);
     test.solution(functionTest);
 
@@ -78,16 +62,22 @@ void MainWindow::on_startTestTask_clicked()
     double totalS = 0., totalDerS = 0., totalSecDerS = 0.;
     double totalXS = 0., totalXDerS = 0., totalXSecDerS = 0.;
 
-    h /= 5.;
+    h /= testM;
 
     double x, spline, function, dspline, dfunction, ddspline, ddfunction, scomp, dscomp, ddscomp;
 
-    for (int i = 0, j = 1; i <= testN * 5; i++)
+    for (int i = 0, j = 1; i <= testN * testM; i++)
     {
+        //x
         x = -1. + static_cast<double>(i) * h;
 
-        spline = test.S(j, x);
+        //function
         function = functionTest(x);
+
+        //spline
+        spline = test.S(j, x);
+
+        //разность между функцией и сплайном
         scomp = function - spline;
 
         if (abs(scomp) > totalS)
@@ -97,7 +87,9 @@ void MainWindow::on_startTestTask_clicked()
         }
 
         dspline = test.dS(j, x);
+
         dfunction = functionTestD(x);
+
         dscomp = dfunction - dspline;
 
         if (abs(dscomp) > totalDerS)
@@ -136,15 +128,15 @@ void MainWindow::on_startTestTask_clicked()
 
         *testSeries << QPointF(x, spline);
         *testFuncSeries << QPointF(x, function);
+        *testCompSeries << QPointF(x, scomp);
         *testDSeries << QPointF(x, dspline);
         *testDFuncSeries << QPointF(x, dfunction);
         *testDDSeries << QPointF(x, ddspline);
         *testDDFuncSeries << QPointF(x, ddfunction);
-        *testCompSeries << QPointF(x, scomp);
         *testCompDSeries << QPointF(x, dscomp);
         *testCompDDSeries << QPointF(x, ddscomp);
 
-        if (i != 0) if ((i % 5) == 0) j++;
+        if (i != 0) if ((i % testM) == 0) j++;
     }
 
     chartTest->addSeries(testSeries);
@@ -158,62 +150,37 @@ void MainWindow::on_startTestTask_clicked()
     chartTest->addSeries(testCompDDSeries);
 
     ui->graphicsView->setChart(chartTest);
+
     testSeries->attachAxis(testX);
     testSeries->attachAxis(testY);
 
-    testX->setRange(-1., 1.);
+    testFuncSeries->attachAxis(testX);
+    testFuncSeries->attachAxis(testY);
 
-    if (ui->testComboBox->currentIndex() < 3)
-    {
-        testY->setRange(0., 2.);
-    }
-    else
-    {
-        if (ui->testComboBox->currentIndex() == 3) testY->setRange(0., totalS);
-        else if (ui->testComboBox->currentIndex() == 4) testY->setRange(0., totalDerS);
-        else testY->setRange(0., totalSecDerS);
-    }
-    //ui->graphicsView->zoomIt(false);
+    testDSeries->attachAxis(testX);
+    testDSeries->attachAxis(testY);
 
-    if (ui->testComboBox->currentIndex() == 0)
-    {
-        if (ui->testSplineBox->isChecked()) testSeries->setVisible(true);
-        else testSeries->setVisible(false);
+    testDFuncSeries->attachAxis(testX);
+    testDFuncSeries->attachAxis(testY);
 
-        if (ui->testFuncBox->isChecked()) testFuncSeries->setVisible(true);
-        else testFuncSeries->setVisible(false);
-    }
-    else if (ui->testComboBox->currentIndex() == 1)
-    {
-        if (ui->testSplineBox->isChecked()) testDSeries->setVisible(true);
-        else testDSeries->setVisible(false);
+    testDDSeries->attachAxis(testX);
+    testDDSeries->attachAxis(testY);
 
-        if (ui->testFuncBox->isChecked()) testDFuncSeries->setVisible(true);
-        else testDFuncSeries->setVisible(false);
-    }
-    else if (ui->testComboBox->currentIndex() == 2)
-    {
-        if (ui->testSplineBox->isChecked()) testDDSeries->setVisible(true);
-        else testDDSeries->setVisible(false);
+    testDDFuncSeries->attachAxis(testX);
+    testDDFuncSeries->attachAxis(testY);
 
-        if (ui->testFuncBox->isChecked()) testDDFuncSeries->setVisible(true);
-        else testDDFuncSeries->setVisible(false);
-    }
-    else if (ui->testComboBox->currentIndex() == 3)
-    {
-        testCompSeries->setVisible(true);
-    }
-    else if (ui->testComboBox->currentIndex() == 4)
-    {
-        testCompDSeries->setVisible(true);
-    }
-    else
-    {
-        testCompDDSeries->setVisible(true);
-    }
+    testCompSeries->attachAxis(testX);
+    testCompSeries->attachAxis(testY);
 
-    ui->testNEdit->setText(QString().number(testN * 5));
-    ui->testnEdit->setText(QString().number(testN));
+    testCompDSeries->attachAxis(testX);
+    testCompDSeries->attachAxis(testY);
+
+    testCompDDSeries->attachAxis(testX);
+    testCompDDSeries->attachAxis(testY);
+
+
+    ui->testNEdit->setText(QString().number(testN * testM + 1));
+    ui->testnEdit->setText(QString().number(testN + 1));
 
     ui->testSComp->setText(QString().number(totalS));
     ui->testxSComp->setText(QString().number(totalXS));
@@ -223,6 +190,16 @@ void MainWindow::on_startTestTask_clicked()
 
     ui->testSecDerSComp->setText(QString().number(totalSecDerS));
     ui->testxSecDerSComp->setText(QString().number(totalXSecDerS));
+
+    on_showDotsTest_clicked(ui->showDotsTest->isChecked());
+
+    on_testFuncBox_clicked(ui->testFuncBox->isChecked());
+
+    on_testSplineBox_clicked(ui->testSplineBox->isChecked());
+
+    on_testComboBox_currentIndexChanged(ui->testComboBox->currentIndex());
+
+    ui->graphicsView->zoomIt(true);
 }
 
 
@@ -278,7 +255,6 @@ void MainWindow::on_numberTest_editingFinished()
 
     ui->startTestTask->setEnabled(true);
 }
-
 
 void MainWindow::on_showDotsTest_clicked(bool checked)
 {
@@ -407,4 +383,38 @@ void MainWindow::on_testComboBox_currentIndexChanged(int index)
         }
         }
     }
+}
+
+void MainWindow::on_testMultiplier_editingFinished()
+{
+    bool ok;
+    ui->testMultiplier->text().toInt(&ok);
+
+    if (ok == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Ошибка");
+        msgBox.setText("Недопустимые символы");
+        msgBox.exec();
+
+        ui->startTestTask->setEnabled(false);
+
+        return;
+    }
+
+    testM = ui->testMultiplier->text().toInt();
+
+    if (testM < 0)
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Ошибка");
+        msgBox.setText("Множитель не может быть отрицательным числом");
+        msgBox.exec();
+
+        ui->startTestTask->setEnabled(false);
+
+        return;
+    }
+
+    ui->startTestTask->setEnabled(true);
 }

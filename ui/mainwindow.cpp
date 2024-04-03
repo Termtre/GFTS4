@@ -44,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Основная функция
     chartMain = new QChart();
-    chartMain->legend()->setVisible(false);
+    chartMain->legend()->setVisible(true);
     chartMain->setTitle("Основная функция");
 
     mainX = new QValueAxis();
@@ -69,7 +69,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Осциллирующая функция
     chartOscill = new QChart();
-    chartOscill->legend()->setVisible(false);
+    chartOscill->legend()->setVisible(true);
     chartOscill->setTitle("Осциллирующая функция");
 
     oscillX = new QValueAxis();
@@ -95,6 +95,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->graphicsView->setRenderHint(QPainter::Antialiasing);
     ui->graphicsView_2->setRenderHint(QPainter::Antialiasing);
     ui->graphicsView_3->setRenderHint(QPainter::Antialiasing);
+
+    ui->graphicsView->zoomIt(false);
+    ui->graphicsView_2->zoomIt(false);
+    ui->graphicsView_3->zoomIt(false);
 }
 
 MainWindow::~MainWindow()

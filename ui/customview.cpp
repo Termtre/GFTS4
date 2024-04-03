@@ -28,39 +28,27 @@ void CustomView::wheelEvent(QWheelEvent *event)
 #ifdef __APPLE__
         koef = 1.1;
 #else
-        koef = 2.;//1.3;
+        koef = 1.5;
 #endif
 
-        double lenghtX = abs(MaxX - MinX) / koef;
-        double lenghtY = abs(MaxY - MinY) / koef;
-        double ZoomMinX = MinX;
-        double ZoomMaxX = MaxX;
-        double ZoomMinY = MinY;
-        double ZoomMaxY = MaxY;
+        double ZoomMinX;
+        double ZoomMaxX;
+        double ZoomMinY;
+        double ZoomMaxY;
 
         if(event->angleDelta().y() > 0)
         {
-            //ZoomMinX = cur.x() - (cur.x() - MinX) / koef;
-            //ZoomMaxX = cur.x() - (cur.x() - MaxX) / koef;
-            //ZoomMinY = cur.y() - (cur.y() - MinY) / koef;
-            //ZoomMaxY = cur.y() - (cur.y() - MaxY) / koef;
-
-            ZoomMinX /= koef;
-            ZoomMaxX /= koef;
-            ZoomMinY /= koef;
-            ZoomMaxY /= koef;
+            ZoomMinX = cur.x() - (cur.x() - MinX) / koef;
+            ZoomMaxX = cur.x() - (cur.x() - MaxX) / koef;
+            ZoomMinY = cur.y() - (cur.y() - MinY) / koef;
+            ZoomMaxY = cur.y() - (cur.y() - MaxY) / koef;
         }
         else
         {
-            //ZoomMinX = cur.x() - (cur.x() - MinX) * koef;
-            //ZoomMaxX = cur.x() - (cur.x() - MaxX) * koef;
-            //ZoomMinY = cur.y() - (cur.y() - MinY) * koef;
-            //ZoomMaxY = cur.y() - (cur.y() - MaxY) * koef;
-
-            ZoomMinX *= koef;
-            ZoomMaxX *= koef;
-            ZoomMinY *= koef;
-            ZoomMaxY *= koef;
+            ZoomMinX = cur.x() - (cur.x() - MinX) * koef;
+            ZoomMaxX = cur.x() - (cur.x() - MaxX) * koef;
+            ZoomMinY = cur.y() - (cur.y() - MinY) * koef;
+            ZoomMaxY = cur.y() - (cur.y() - MaxY) * koef;
         }
 
         axisX->setRange(ZoomMinX, ZoomMaxX);
@@ -70,7 +58,7 @@ void CustomView::wheelEvent(QWheelEvent *event)
 
 void CustomView::mousePressEvent(QMouseEvent *event)
 {
-    if (0)
+    if (itZoom)
     {
         if (event->button() == Qt::LeftButton)
         {
@@ -82,7 +70,7 @@ void CustomView::mousePressEvent(QMouseEvent *event)
 
 void CustomView::mouseMoveEvent(QMouseEvent *event)
 {
-    if (0)
+    if (itZoom)
     {
         if(isPress)
         {
