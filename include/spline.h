@@ -4,6 +4,7 @@
 #include <QLineSeries>
 #include <QTableWidget>
 #include <vector>
+#include <cmath>
 
 class Spline
 {
